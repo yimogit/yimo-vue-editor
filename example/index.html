@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>yimo-vue-editor</title>
+  <script type="text/javascript" src="https://cdn.staticfile.org/vue/2.5.11/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <h2>yimo-vue-editor</h2>
+      <yimo-vue-editor v-model="editorContent"></yimo-vue-editor>
+    </div>
+    <div>
+      <h2>v-editor</h2>
+      <v-editor v-model="editorContent"></v-editor>
+    </div>
+    <div>
+      <h3>预览 </h3>
+      <textarea style="width:100%;height:300px;" v-model="editorContent"></textarea>
+    </div>
+  </div>
+  <script src="../dist/yimo-vue-editor.js"></script>
+  <script type="text/javascript">
+    Vue.use(YimoVueEditor.default)
+    Vue.component('v-editor', YimoVueEditor.default)
+    new Vue({
+      el: '#app',
+      data: {
+        editorContent: 'hello world'
+      },
+    });
+  </script>
+</body>
+
+</html>
