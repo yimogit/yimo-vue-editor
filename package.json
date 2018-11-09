@@ -8,8 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --port 1122 ",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "mock": "node mock-server/index.js --port 2233",
-    "mock-build": "node mock-server/build.js --target ./dist/mockserver"
+    "mock": "node mock-server/index.js --port 2233"
   },
   "main": "dist/yimo-vue-editor.js", 
   "repository": {
