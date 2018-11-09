@@ -52,9 +52,9 @@
   padding: 3px 5px;
   border-top: 2px solid #666;
   box-shadow: 1px 3px 3px #999;
-  border-left: 1px\9 solid\9 #ccc\9;
-  border-bottom: 1px\9 solid\9 #999\9;
-  border-right: 1px\9 solid\9 #999\9;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
 }
 .wangEditor-container .txt-toolbar .tip-triangle {
   display: block;
@@ -196,7 +196,7 @@
 }
 .wangEditor-menu-shadow {
   /*border-bottom-width: 0;*/
-  border-bottom: 1px\9 solid\9 #f1f1f1\9;
+  border-bottom: 1px solid #f1f1f1;
   box-shadow: 0 1px 3px #999;
 }
 .wangEditor-container .wangEditor-txt {
@@ -280,9 +280,9 @@
   transition: height .7s;
   border-top: 1px solid #f1f1f1;
   box-shadow: 1px 3px 3px #999;
-  border-left: 1px\9 solid\9 #ccc\9;
-  border-bottom: 1px\9 solid\9 #999\9;
-  border-right: 1px\9 solid\9 #999\9;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
 }
 .wangEditor-drop-list a {
   text-decoration: none;
@@ -299,14 +299,14 @@
   position: absolute;
   padding: 10px;
   font-size: 14px;
-  /*border: 1px\9 solid\9 #cccccc\9;*/
+  /*border: 1px solid #cccccc;*/
   background-color: #fff;
   z-index: 10;
   border-top: 2px solid #666;
   box-shadow: 1px 3px 3px #999;
-  border-left: 1px\9 solid\9 #ccc\9;
-  border-bottom: 1px\9 solid\9 #999\9;
-  border-right: 1px\9 solid\9 #999\9;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
 }
 .wangEditor-drop-panel .tip-triangle,
 .txt-toolbar .tip-triangle {
@@ -496,10 +496,10 @@
   background-color: #fff;
   border-top: 1px solid #f1f1f1;
   box-shadow: 1px 3px 3px #999;
-  border-top: 1px\9 solid\9 #ccc\9;
-  border-left: 1px\9 solid\9 #ccc\9;
-  border-bottom: 1px\9 solid\9 #999\9;
-  border-right: 1px\9 solid\9 #999\9;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
 }
 .wangEditor-modal .wangEditor-modal-close {
   position: absolute;
