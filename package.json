@@ -1,21 +1,24 @@
 {
   "name": "yimo-vue-editor",
   "description": "基于 wangeditor2.5.11 封装的 vue-editor 组件",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "易墨 <wsyimo@qq.com>",
   "license": "MIT",
   "private": false,
+  "keywords": [
+    "vue",
+    "wangeditor"
+  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --port 1122 ",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "mock": "node mock-server/index.js --port 2233"
   },
-  "main": "dist/yimo-vue-editor.js", 
+  "main": "dist/yimo-vue-editor.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/yimogit/yimo-vue-editor"
-  }, 
-
+  },
   "dependencies": {
     "jquery": "^3.3.1",
     "vue": "^2.5.11"

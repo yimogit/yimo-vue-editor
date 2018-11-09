@@ -10,26 +10,46 @@
 <body>
   <div id="app">
     <div>
-      <h2>yimo-vue-editor</h2>
-      <yimo-vue-editor v-model="editorContent"></yimo-vue-editor>
+      <h3>实例切换：{{caseType}}</h3>
+      <button @click="caseType=item" v-for="item in ['单个','多个']" :key="item">{{item}}</button>
     </div>
-    <div>
-      <h2>v-editor</h2>
-      <v-editor v-model="editorContent"></v-editor>
+    <div v-if="caseType==='单个'" key="case1">
+      <h3>单个编辑器：</h3>
+      <v-editor v-model="editorObj.singleTxt" :config="{printLog:false, uploadImgUrl: '/mockserver/api/upload?isIe9=' + isIe9}"></v-editor>
+      <div>预览：</div>
+      <textarea style="width:100%;height:300px;" v-model="editorObj.singleTxt"></textarea>
     </div>
-    <div>
-      <h3>预览 </h3>
-      <textarea style="width:100%;height:300px;" v-model="editorContent"></textarea>
+    <div v-if="caseType==='多个'" key="case2">
+      <div v-for="(item,index) in editorObj.arrayTxt" :key="'e_'+index">
+        <h3>编辑器{{index+1}}：</h3>
+        <div :key="'eidtor2_'+index">
+          <v-editor v-model="item.msg" :key="'eidtor_'+index" :config="uploadConfig"></v-editor>
+        </div>
+        <div>预览编辑器{{index+1}}：</div>
+        <textarea style="width:100%;height:300px;" v-model="item.msg"></textarea>
+      </div>
     </div>
   </div>
-  <script src="/dist/yimo-vue-editor.js"></script>
+  <script src="../dist/yimo-vue-editor.js"></script>
   <script type="text/javascript">
-    Vue.use(YimoVueEditor.default)
+    var isIe9 = window.navigator.userAgent.indexOf('MSIE 9.0') > 0
+    // Vue.use(YimoVueEditor.default)
     Vue.component('v-editor', YimoVueEditor.default)
     new Vue({
       el: '#app',
       data: {
-        editorContent: 'hello world'
+        isIe9: isIe9,
+        uploadConfig: {
+          printLog: false,
+          //ie9不支持跨域
+          uploadImgUrl: 'http://localhost:2233/api/upload?isIe9=' + isIe9
+        },
+        caseType: '单个', //单个 多个
+        editorObj: {
+          singleTxt: 'Welcome to Your Vue.js App',
+          singleTxt2: 'Welcome to Your Vue.js App',
+          arrayTxt: [{ msg: '<p>aa</p>' }, { msg: '<p>bb</p>' }]
+        }
       },
     });
   </script>
