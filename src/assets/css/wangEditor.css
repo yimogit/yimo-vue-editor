@@ -45,7 +45,7 @@
   width: 3px;
   background-color: #ccc;
   left: 0;
-  transition: top .2s;
+  transition: top 0.2s;
 }
 .wangEditor-container .txt-toolbar {
   position: absolute;
@@ -97,9 +97,9 @@
   background: #1e88e5;
   width: 0;
   display: none;
-  -webkit-transition: width .5s;
-  -o-transition: width .5s;
-  transition: width .5s;
+  -webkit-transition: width 0.5s;
+  -o-transition: width 0.5s;
+  transition: width 0.5s;
 }
 .wangEditor-fullscreen {
   position: fixed;
@@ -278,7 +278,7 @@
   background-color: #fff;
   overflow: hidden;
   z-index: 10;
-  transition: height .7s;
+  transition: height 0.7s;
   border-top: 1px solid #f1f1f1;
   box-shadow: 1px 3px 3px #999;
   border-left: 1px solid #ccc;
@@ -325,8 +325,8 @@
 .txt-toolbar a {
   text-decoration: none;
 }
-.wangEditor-drop-panel input[type=text],
-.txt-toolbar input[type=text] {
+.wangEditor-drop-panel input[type='text'],
+.txt-toolbar input[type='text'] {
   border: none;
   border-bottom: 1px solid #ccc;
   font-size: 14px;
@@ -334,13 +334,13 @@
   color: #333;
   padding: 3px 0;
 }
-.wangEditor-drop-panel input[type=text]:focus,
-.txt-toolbar input[type=text]:focus {
+.wangEditor-drop-panel input[type='text']:focus,
+.txt-toolbar input[type='text']:focus {
   outline: none;
   border-bottom: 2px solid #1e88e5;
 }
-.wangEditor-drop-panel input[type=text].block,
-.txt-toolbar input[type=text].block {
+.wangEditor-drop-panel input[type='text'].block,
+.txt-toolbar input[type='text'].block {
   display: block;
   width: 100%;
 }
@@ -430,7 +430,7 @@
 .wangEditor-drop-panel table.choose-table td.active,
 .txt-toolbar table.choose-table td.active {
   background-color: #ccc;
-  opacity: .5;
+  opacity: 0.5;
   filter: alpha(opacity=50);
 }
 .wangEditor-drop-panel .panel-tab .tab-container,
@@ -514,13 +514,16 @@
 }
 @font-face {
   font-family: 'icomoon';
-  src: url('./fonts/icomoon.eot?-qdfu1s');
-  src: url('./fonts/icomoon.eot?#iefix-qdfu1s') format('embedded-opentype'), url('./fonts/icomoon.ttf?-qdfu1s') format('truetype'), url('./fonts/icomoon.woff?-qdfu1s') format('woff'), url('./fonts/icomoon.svg?-qdfu1s#icomoon') format('svg');
+  src: url('../fonts/icomoon.eot');
+  src: url('../fonts/icomoon.eot') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf') format('truetype'),
+    url('../fonts/icomoon.woff') format('woff'),
+    url('../fonts/icomoon.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-[class^="wangeditor-menu-img-"],
-[class*=" wangeditor-menu-img-"] {
+[class^='wangeditor-menu-img-'],
+[class*=' wangeditor-menu-img-'] {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -533,202 +536,202 @@
   -moz-osx-font-smoothing: grayscale;
 }
 .wangeditor-menu-img-link:before {
-  content: "\e800";
+  content: '\e800';
 }
 .wangeditor-menu-img-unlink:before {
-  content: "\e801";
+  content: '\e801';
 }
 .wangeditor-menu-img-code:before {
-  content: "\e802";
+  content: '\e802';
 }
 .wangeditor-menu-img-cancel:before {
-  content: "\e803";
+  content: '\e803';
 }
 .wangeditor-menu-img-terminal:before {
-  content: "\e804";
+  content: '\e804';
 }
 .wangeditor-menu-img-angle-down:before {
-  content: "\e805";
+  content: '\e805';
 }
 .wangeditor-menu-img-font:before {
-  content: "\e806";
+  content: '\e806';
 }
 .wangeditor-menu-img-bold:before {
-  content: "\e807";
+  content: '\e807';
 }
 .wangeditor-menu-img-italic:before {
-  content: "\e808";
+  content: '\e808';
 }
 .wangeditor-menu-img-header:before {
-  content: "\e809";
+  content: '\e809';
 }
 .wangeditor-menu-img-align-left:before {
-  content: "\e80a";
+  content: '\e80a';
 }
 .wangeditor-menu-img-align-center:before {
-  content: "\e80b";
+  content: '\e80b';
 }
 .wangeditor-menu-img-align-right:before {
-  content: "\e80c";
+  content: '\e80c';
 }
 .wangeditor-menu-img-list-bullet:before {
-  content: "\e80d";
+  content: '\e80d';
 }
 .wangeditor-menu-img-indent-left:before {
-  content: "\e80e";
+  content: '\e80e';
 }
 .wangeditor-menu-img-indent-right:before {
-  content: "\e80f";
+  content: '\e80f';
 }
 .wangeditor-menu-img-list-numbered:before {
-  content: "\e810";
+  content: '\e810';
 }
 .wangeditor-menu-img-underline:before {
-  content: "\e811";
+  content: '\e811';
 }
 .wangeditor-menu-img-table:before {
-  content: "\e812";
+  content: '\e812';
 }
 .wangeditor-menu-img-eraser:before {
-  content: "\e813";
+  content: '\e813';
 }
 .wangeditor-menu-img-text-height:before {
-  content: "\e814";
+  content: '\e814';
 }
 .wangeditor-menu-img-brush:before {
-  content: "\e815";
+  content: '\e815';
 }
 .wangeditor-menu-img-pencil:before {
-  content: "\e816";
+  content: '\e816';
 }
 .wangeditor-menu-img-minus:before {
-  content: "\e817";
+  content: '\e817';
 }
 .wangeditor-menu-img-picture:before {
-  content: "\e818";
+  content: '\e818';
 }
 .wangeditor-menu-img-file-image:before {
-  content: "\e819";
+  content: '\e819';
 }
 .wangeditor-menu-img-cw:before {
-  content: "\e81a";
+  content: '\e81a';
 }
 .wangeditor-menu-img-ccw:before {
-  content: "\e81b";
+  content: '\e81b';
 }
 .wangeditor-menu-img-music:before {
-  content: "\e911";
+  content: '\e911';
 }
 .wangeditor-menu-img-play:before {
-  content: "\e912";
+  content: '\e912';
 }
 .wangeditor-menu-img-location:before {
-  content: "\e947";
+  content: '\e947';
 }
 .wangeditor-menu-img-happy:before {
-  content: "\e9df";
+  content: '\e9df';
 }
 .wangeditor-menu-img-sigma:before {
-  content: "\ea67";
+  content: '\ea67';
 }
 .wangeditor-menu-img-enlarge2:before {
-  content: "\e98b";
+  content: '\e98b';
 }
 .wangeditor-menu-img-shrink2:before {
-  content: "\e98c";
+  content: '\e98c';
 }
 .wangeditor-menu-img-newspaper:before {
-  content: "\e904";
+  content: '\e904';
 }
 .wangeditor-menu-img-camera:before {
-  content: "\e90f";
+  content: '\e90f';
 }
 .wangeditor-menu-img-video-camera:before {
-  content: "\e914";
+  content: '\e914';
 }
 .wangeditor-menu-img-file-zip:before {
-  content: "\e92b";
+  content: '\e92b';
 }
 .wangeditor-menu-img-stack:before {
-  content: "\e92e";
+  content: '\e92e';
 }
 .wangeditor-menu-img-credit-card:before {
-  content: "\e93f";
+  content: '\e93f';
 }
 .wangeditor-menu-img-address-book:before {
-  content: "\e944";
+  content: '\e944';
 }
 .wangeditor-menu-img-envelop:before {
-  content: "\e945";
+  content: '\e945';
 }
 .wangeditor-menu-img-drawer:before {
-  content: "\e95c";
+  content: '\e95c';
 }
 .wangeditor-menu-img-download:before {
-  content: "\e960";
+  content: '\e960';
 }
 .wangeditor-menu-img-upload:before {
-  content: "\e961";
+  content: '\e961';
 }
 .wangeditor-menu-img-lock:before {
-  content: "\e98f";
+  content: '\e98f';
 }
 .wangeditor-menu-img-unlocked:before {
-  content: "\e990";
+  content: '\e990';
 }
 .wangeditor-menu-img-wrench:before {
-  content: "\e991";
+  content: '\e991';
 }
 .wangeditor-menu-img-eye:before {
-  content: "\e9ce";
+  content: '\e9ce';
 }
 .wangeditor-menu-img-eye-blocked:before {
-  content: "\e9d1";
+  content: '\e9d1';
 }
 .wangeditor-menu-img-command:before {
-  content: "\ea4e";
+  content: '\ea4e';
 }
 .wangeditor-menu-img-font2:before {
-  content: "\ea5c";
+  content: '\ea5c';
 }
 .wangeditor-menu-img-libreoffice:before {
-  content: "\eade";
+  content: '\eade';
 }
 .wangeditor-menu-img-quotes-left:before {
-  content: "\e977";
+  content: '\e977';
 }
 .wangeditor-menu-img-strikethrough:before {
-  content: "\ea65";
+  content: '\ea65';
 }
 .wangeditor-menu-img-desktop:before {
-  content: "\f108";
+  content: '\f108';
 }
 .wangeditor-menu-img-tablet:before {
-  content: "\f10a";
+  content: '\f10a';
 }
 .wangeditor-menu-img-search-plus:before {
-  content: "\f00e";
+  content: '\f00e';
 }
 .wangeditor-menu-img-search-minus:before {
-  content: "\f010";
+  content: '\f010';
 }
 .wangeditor-menu-img-trash-o:before {
-  content: "\f014";
+  content: '\f014';
 }
 .wangeditor-menu-img-align-justify:before {
-  content: "\f039";
+  content: '\f039';
 }
 .wangeditor-menu-img-arrows-v:before {
-  content: "\f07d";
+  content: '\f07d';
 }
 .wangeditor-menu-img-sigma2:before {
-  content: "\ea68";
+  content: '\ea68';
 }
 .wangeditor-menu-img-omega:before {
-  content: "\e900";
+  content: '\e900';
 }
 .wangeditor-menu-img-cancel-circle:before {
-  content: "\e901";
+  content: '\e901';
 }
 .hljs {
   display: block;

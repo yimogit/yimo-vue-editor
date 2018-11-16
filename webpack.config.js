@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.(svg|woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'file-loader',
+        loader: 'url-loader',
         options: {
           name: 'fonts/[name].[ext]?[hash]'
         }

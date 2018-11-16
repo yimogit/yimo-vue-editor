@@ -16,7 +16,7 @@
     // commonjs
 
     // 引用 css —— webapck
-    require('./wangEditor.css')
+    require('../css/wangEditor.css')
     module.exports = factory(
       // 传入 jquery ，支持使用 npm 方式或者自己定义jquery的路径
       require('jquery')

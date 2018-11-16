@@ -15,7 +15,8 @@
     </div>
     <div v-if="caseType==='单个'" key="case1">
       <h3>单个编辑器：</h3>
-      <v-editor v-model="editorObj.singleTxt" :config="{printLog:false, uploadImgUrl: '/mockserver/api/upload?isIe9=' + isIe9}"></v-editor>
+      <!-- <v-editor v-model="editorObj.singleTxt" :config="{printLog:false, uploadImgUrl: '/mockserver/api/upload?isIe9=' + isIe9}"></v-editor> -->
+      <yimo-vue-editor v-model="editorObj.singleTxt" :config="{printLog:false, uploadImgUrl: '/mockserver/api/upload?isIe9=' + isIe9}"></yimo-vue-editor>
       <div>预览：</div>
       <textarea style="width:100%;height:300px;" v-model="editorObj.singleTxt"></textarea>
     </div>
@@ -33,10 +34,11 @@
   <script src="../dist/yimo-vue-editor.js"></script>
   <script type="text/javascript">
     var isIe9 = window.navigator.userAgent.indexOf('MSIE 9.0') > 0
-    // Vue.use(YimoVueEditor.default)
-    Vue.component('v-editor', YimoVueEditor.default)
     new Vue({
       el: '#app',
+      components: {
+        'v-editor': YimoVueEditor.default
+      },
       data: {
         isIe9: isIe9,
         uploadConfig: {

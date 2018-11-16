@@ -1,10 +1,9 @@
 <template>
   <div :id="editorId" class="yimo-vue-editor"></div>
 </template>
-
 <script>
 import assign from 'object-assign'
-import E from '../assets/wangEditor/wangEditor.js'
+import E from '../assets/js/wangEditor.js'
 export default {
   props: {
     value: {

@@ -1,5 +1,12 @@
 import YimoVueEditor from './components/Editor'
 
-YimoVueEditor.install = Vue => Vue.component('yimo-vue-editor', YimoVueEditor) // 标签的方式引入，留到后面再另开新篇讨论
-
+const yimoVueEditor = {
+  install: function(Vue) {
+    Vue.component('YimoVueEditor', YimoVueEditor)
+  }
+}
+// 这里的判断很重要
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(yimoVueEditor)
+}
 export default YimoVueEditor

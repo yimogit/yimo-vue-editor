@@ -39,6 +39,7 @@
     "file-loader": "^1.1.4",
     "object-assign": "^4.1.1",
     "shelljs": "^0.8.2",
+    "url-loader": "^1.1.2",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
