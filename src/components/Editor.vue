@@ -4,7 +4,7 @@
 
 <script>
 import assign from 'object-assign'
-import E from '../assets/js/wangEditor'
+import E from '../assets/wangEditor/wangEditor.js'
 export default {
   props: {
     value: {

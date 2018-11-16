@@ -1,7 +1,7 @@
 {
   "name": "yimo-vue-editor",
   "description": "基于 wangeditor2.5.11 封装的 vue-editor 组件",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "易墨 <wsyimo@qq.com>",
   "license": "MIT",
   "private": false,

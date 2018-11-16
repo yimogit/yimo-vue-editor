@@ -47,7 +47,7 @@ export default {
 ## 修改项
 
 - delete 地图菜单代码
-- hide 标签菜单
+- hide 表情菜单
 - fix withCredentials 设置无效
 - fix 页面多个编辑器时,上传图片总是会插入到最后一个编辑器的问题
 - fix 上传多个图片插入顺序问题(添加标签占位后替换)
