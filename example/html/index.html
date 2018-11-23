@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>yimo-vue-editor的使用</title>
+  <script type="text/javascript" src="https://cdn.staticfile.org/vue/2.5.11/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <h3>实例切换：{{caseType}}</h3>
+      <button @click="caseType=item" v-for="item in ['单个','多个']" :key="item">{{item}}</button>
+    </div>
+    <div v-if="caseType==='单个'" key="case1">
+      <h3>单个编辑器：v-editor</h3>
+      <v-editor v-model="editorObj.singleTxt" :config="editorConfig"></v-editor>
+      <h3>全局配置的编辑器：v-editor-app</h3>
+      <v-editor-app v-model="editorObj.singleTxt"></v-editor-app>
+      <div>预览：</div>
+      <textarea style="width:100%;height:300px;" v-model="editorObj.singleTxt"></textarea>
+    </div>
+    <div v-if="caseType==='多个'" key="case2">
+      <div v-for="(item,index) in editorObj.arrayTxt" :key="'e_'+index">
+        <h3>编辑器{{index+1}}：</h3>
+        <div :key="'eidtor2_'+index">
+          <v-editor v-model="item.msg" :key="'eidtor_'+index" :config="editorConfig"></v-editor>
+        </div>
+        <div>预览编辑器{{index+1}}：</div>
+        <textarea style="width:100%;height:300px;" v-model="item.msg"></textarea>
+      </div>
+    </div>
+  </div>
+  <script src="../../dist/yimo-vue-editor.js"></script>
+  <script type="text/javascript">
+    var isIe9 = window.navigator.userAgent.indexOf('MSIE 9.0') > 0
+    console.log(YimoVueEditor)
+    window.Vue.use(YimoVueEditor, {
+      name: 'v-editor-app',
+      config: {
+        uploadPlaceholderImg:'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+        menus: [
+          'source',
+          'img',
+          'video',
+          'insertcode',
+          '|',
+          'undo',
+          'redo',
+          'fullscreen'
+        ]
+      }
+    })
+    new Vue({
+      name: 'app',
+      el: '#app',
+      components: {
+        'v-editor': YimoVueEditor.instance
+      },
+      data: {
+        isIe9: isIe9,
+        editorConfig: {
+          lang: YimoVueEditor.E.langs.en,
+          printLog: false,
+          //ie9不支持跨域
+          uploadImgUrl: 'http://localhost:2233/api/upload?isIe9=' + isIe9,
+          menus: [
+            'source',
+            '|',
+            'bold',
+            'underline',
+            'italic',
+            'strikethrough',
+            'eraser',
+            'forecolor',
+            'bgcolor',
+            '|',
+            'quote',
+            'fontfamily',
+            'fontsize',
+            'head',
+            'unorderlist',
+            'orderlist',
+            'alignleft',
+            'aligncenter',
+            'alignright',
+            '|',
+            'link',
+            'unlink',
+            'table',
+            // 'emotion',
+            '|',
+            'img',
+            'video',
+            'insertcode',
+            '|',
+            'undo',
+            'redo',
+            'fullscreen'
+          ]
+        },
+        caseType: '单个', //单个 多个
+        editorObj: {
+          singleTxt: 'Welcome to Your Vue.js App',
+          singleTxt2: 'Welcome to Your Vue.js App',
+          arrayTxt: [{ msg: '<p>aa</p>' }, { msg: '<p>bb</p>' }]
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

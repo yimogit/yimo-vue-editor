@@ -5,8 +5,10 @@
       <button @click="caseType=item" v-for="item in ['单个','多个']" :key="item">{{item}}</button>
     </div>
     <div v-if="caseType==='单个'" key="case1">
-      <h3>单个编辑器：</h3>
+      <h3>单个编辑器：v-editor</h3>
       <v-editor v-model="editorObj.singleTxt" :config="{printLog:false, uploadImgUrl: '/mockserver/api/upload?isIe9=' + isIe9}" />
+      <h3>单个编辑器：v-editor-app</h3>
+      <v-editor-app v-model="editorObj.singleTxt" :config="{printLog:false, uploadImgUrl: '/mockserver/api/upload?isIe9=' + isIe9}" />
       <div>预览：</div>
       <textarea style="width:100%;height:300px;" v-model="editorObj.singleTxt"></textarea>
     </div>
@@ -25,11 +27,12 @@
 
 <script>
 var isIe9 = window.navigator.userAgent.indexOf('MSIE 9.0') > 0
-import VEditor from './components/Editor'
+import VEditor from '../../src/Editor'
+
 export default {
   name: 'app',
   components: {
-    'v-editor': VEditor
+    VEditor
   },
   data() {
     return {

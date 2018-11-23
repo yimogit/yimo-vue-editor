@@ -3,8 +3,9 @@
 </template>
 <script>
 import assign from 'object-assign'
-import E from '../assets/js/wangEditor.js'
+import E from './assets/js/wangEditor.js'
 export default {
+  name: 'yimo-vue-editor',
   props: {
     value: {
       type: String
@@ -13,27 +14,20 @@ export default {
       type: Object,
       default: null
     },
-    uploadSuccessHandler: {
-      type: Function,
-      default: resTxt => {
-        try {
-          var res = JSON.parse(resTxt)
-          if (res.status !== 1) {
-            alert(res.msg)
-            return null
-          }
-          return res.data.fileUrl
-        } catch (ex) {
-          // alert('上传错误')
-          return null
-        }
-      }
+    uploadHandler: {
+      type: Function
+    },
+    globalOptions: {
+      type: Object,
+      required: false,
+      default: () => ({})
     }
   },
   data() {
     return {
-      editorId: null,
+      editorId: 'editor_' + Date.now() + ~~(Math.random() * 1000),
       currentValue: null,
+      currentConfig: {},
       _currentEditor: null,
       hasInit: false //是否初始化
     }
@@ -42,7 +36,8 @@ export default {
     value: {
       handler(val) {
         this.setContent(val)
-      }
+      },
+      immediate: true
     },
     currentValue(val) {
       var html = val //xss等处理
@@ -54,11 +49,6 @@ export default {
         })
       }
     }
-  },
-  mounted() {
-    this.editorId = 'editor_' + Date.now() + ~~(Math.random() * 1000)
-    // console.log(this.editorId)
-    this.setContent(this.value)
   },
   methods: {
     setContent(val) {
@@ -92,7 +82,11 @@ export default {
       _this.editorConfig(editor)
       _this.imageConfig(editor)
       // 合并配置
-      assign(editor.config, _this.config)
+      this.currentConfig = assign(
+        editor.config,
+        this.globalOptions.config,
+        _this.config
+      )
       // console.log(editor.config)
       _this.hasInit = true
       editor.onchange = () => {
@@ -153,9 +147,19 @@ export default {
       let _this = this
       // 自定义load事件
       editor.config.uploadImgFns.onload = function(resultText, xhr, fileName) {
-        window.__currentEditor = this
-        var fileUrl = _this.uploadSuccessHandler(resultText)
-        var $img = this.$txt.find('img[alt="uploading_' + fileName + '"]')
+        if (xhr.status !== 200) {
+          var msg = _this._uploadHandler('error')
+          uploadError.call(
+            this,
+            fileName,
+            msg || this.config.lang.uploadErrorPlaceTxt
+          )
+          return
+        }
+        var fileUrl = _this._uploadHandler('success', resultText)
+        var $img = this.$txt.find(
+          'img[alt="' + this.config.lang.uploadPlaceTxt + fileName + '"]'
+        )
         if (fileUrl) {
           if ($img.length > 0) {
             $img.attr('src', fileUrl).removeAttr('alt')
@@ -164,25 +168,46 @@ export default {
             this.command(null, 'insertHtml', '<img src="' + fileUrl + '"/>')
           }
         } else {
-          uploadError.call(this, fileName, '上传失败')
+          uploadError.call(this, fileName, this.config.lang.uploadErrorPlaceTxt)
         }
       }
 
       // 自定义timeout事件
       editor.config.uploadImgFns.ontimeout = function(xhr, fileName) {
-        uploadError.call(this, fileName, '上传超时')
+        var msg = _this._uploadHandler('timeout')
+        uploadError.call(
+          this,
+          fileName,
+          msg || this.config.lang.uploadTimeoutPlaceTxt
+        )
       }
 
       // 自定义error事件
       editor.config.uploadImgFns.onerror = function(xhr, fileName) {
-        uploadError.call(this, fileName, '上传失败')
+        var msg = _this._uploadHandler('error')
+        uploadError.call(
+          this,
+          fileName,
+          msg || this.config.lang.uploadErrorPlaceTxt
+        )
       }
       function uploadError(fileName, msg) {
-        var $img = this.$txt.find('img[alt="uploading_' + fileName + '"]')
-        $img.after(fileName + msg)
+        var $img = this.$txt.find(
+          'img[alt="' + this.config.lang.uploadPlaceTxt + fileName + '"]'
+        )
+        $img.after('【' + msg + fileName + '】')
         $img.remove()
         this.$txt.change()
       }
+    },
+    _uploadHandler(type, resultText) {
+      let _this = this
+      if (_this.uploadHandler) {
+        return _this.uploadHandler(type, resultText)
+      } else if (_this.globalOptions.uploadHandler) {
+        return _this.globalOptions.uploadHandler(type, resultText)
+      } else if (type === 'success') return resultText
+      return null
     }
   }
 }

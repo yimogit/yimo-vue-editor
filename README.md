@@ -1,10 +1,11 @@
 # yimo-vue-editor
 
-> 基于 wangeditor2.5.11 封装的 vue-editor 组件  
-> wangEditor 文档：https://www.kancloud.cn/wangfupeng/wangeditor2/113961   
-> 演示地址: http://vue-editor.yimo.link/example/index.html
+演示地址: http://vue-editor.yimo.link/example/html/index.html
 
-## 使用
+> 基于 wangeditor2.5.11 封装的 vue-editor 组件  
+> wangEditor 文档：https://www.kancloud.cn/wangfupeng/wangeditor2/113961
+
+## vue 项目中使用
 
 `npm instal yimo-vue-editor --save`
 
@@ -21,26 +22,53 @@ export default {
 }
 ```
 
+## 全局引入并配置
+
+``` js
+import VEditor from 'yimo-vue-editor'
+
+Vue.use(VEditor, {
+  name: 'v-editor-app',//自定义名称
+  config: {},//wagnEditor 配置
+  uploadHandler: (type, resTxt) => {//上传处理钩子
+    if (type === 'success') {
+      var res = JSON.parse(resTxt)//不处理默认认为返回值位图片路径
+      if (res.status !== 1) {
+        return null
+      }
+      return res.data
+    } else if (type === 'error') {
+      //todo toast
+    } else if (type === 'timeout') {
+      //todo toast
+    }
+    return '上传失败__'
+  }
+})
+```
+
 ## 参数
 
 - value
-  v-model 绑定的值
+  v-model 绑定编辑器值
 - config
   wangEditor2.0 的 config 参数，[wangEditor 的文档](https://www.kancloud.cn/wangfupeng/wangeditor2/113975)
-- uploadSuccessHandler
-  对图片上传成功后返回值的处理，返回要插入的 url,默认返回如下 json 格式:`{status:1,msg:'',data:{}}`
+- uploadHandler
+  对图片上传后返回值的处理，成功返回要插入的 url，失败返回错误提示或者在钩子中进行提示等操作
   ```js
-  var uploadSuccessHandler = resTxt => {
-    try {
+  var uuploadHandler = (type, resTxt) => {
+    if (type === 'success') {
       var res = JSON.parse(resTxt)
       if (res.status !== 1) {
-        alert(res.msg)
         return null
       }
       return res.data.fileUrl
-    } catch (ex) {
-      return null
+    } else if (type === 'error') {
+      //todo toast
+    } else if (type === 'timeout') {
+      //todo toast
     }
+    return '上传失败'
   }
   ```
 
@@ -49,9 +77,11 @@ export default {
 - delete 地图菜单代码
 - hide 表情菜单
 - fix withCredentials 设置无效
-- fix 页面多个编辑器时,上传图片总是会插入到最后一个编辑器的问题
 - fix 上传多个图片插入顺序问题(添加标签占位后替换)
 - add 链接打开状态选择
+- add 上传之后的钩子
+
+
 
 ## 需要注意的地方
 

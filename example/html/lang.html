@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>yimo-vue-editor的使用</title>
+  <script type="text/javascript" src="https://cdn.staticfile.org/vue/2.5.11/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <h3>多语言配置</h3>
+    </div>
+    <div v-if="caseType==='单个'" key="case1">
+      <h3>单个编辑器：v-editor</h3>
+      <v-editor v-model="editorObj.singleTxt" :config="editorConfig"></v-editor>
+      <h3>全局配置的编辑器：v-editor-app</h3>
+      <v-editor-app v-model="editorObj.singleTxt"></v-editor-app>
+      <div>预览：</div>
+      <textarea style="width:100%;height:300px;" v-model="editorObj.singleTxt"></textarea>
+    </div>
+  </div>
+  <script src="../../dist/yimo-vue-editor.js"></script>
+  <script type="text/javascript">
+    var isIe9 = window.navigator.userAgent.indexOf('MSIE 9.0') > 0
+    console.log(YimoVueEditor)
+    window.Vue.use(YimoVueEditor, {
+      name: 'v-editor-app',
+      config: {
+        menus: [
+          'source',
+          'bold',
+          'underline',
+          'italic',
+          'strikethrough',
+        ]
+      }
+    })
+    new Vue({
+      name: 'app',
+      el: '#app',
+      components: {
+        'v-editor': YimoVueEditor.instance
+      },
+      data: {
+        isIe9: isIe9,
+        editorConfig: {
+          printLog: false,
+          //ie9不支持跨域
+          uploadImgUrl: 'http://localhost:2233/api/upload?isIe9=' + isIe9,
+          menus: [
+            'source',
+            '|',
+            'bold',
+            'underline',
+            'italic',
+            'strikethrough',
+            'eraser',
+            'forecolor',
+            'bgcolor',
+            '|',
+            'quote',
+            'fontfamily',
+            'fontsize',
+            'head',
+            'unorderlist',
+            'orderlist',
+            'alignleft',
+            'aligncenter',
+            'alignright',
+            '|',
+            'link',
+            'unlink',
+            'table',
+            // 'emotion',
+            '|',
+            'img',
+            'video',
+            'insertcode',
+            '|',
+            'undo',
+            'redo',
+            'fullscreen'
+          ],
+
+          lang: {
+            bold: 'Bold',
+            underline: 'Underline',
+            italic: 'Italic',
+            forecolor: 'Color',
+            bgcolor: 'Backcolor',
+            strikethrough: 'Strikethrough',
+            eraser: 'Eraser',
+            source: 'Codeview',
+            quote: 'Quote',
+            fontfamily: 'Font family',
+            fontsize: 'Font size',
+            head: 'Head',
+            orderlist: 'Ordered list',
+            unorderlist: 'Unordered list',
+            alignleft: 'Align left',
+            aligncenter: 'Align center',
+            alignright: 'Align right',
+            link: 'Insert link',
+            linkTarget: 'Open mode',
+            text: 'Text',
+            submit: 'Submit',
+            cancel: 'Cancel',
+            unlink: 'Unlink',
+            table: 'Table',
+            emotion: 'Emotions',
+            img: 'Image',
+            uploadImg: 'Upload',
+            linkImg: 'Link',
+            video: 'Video',
+            width: 'width',
+            height: 'height',
+            location: 'Location',
+            loading: 'Loading',
+            searchlocation: 'search',
+            dynamicMap: 'Dynamic',
+            clearLocation: 'Clear',
+            langDynamicOneLocation: 'Only one location in dynamic map',
+            insertcode: 'Insert Code',
+            undo: 'Undo',
+            redo: 'Redo',
+            fullscreen: 'Full screnn',
+            openLink: 'open link'
+          },
+
+        },
+        caseType: '单个', //单个 多个
+        editorObj: {
+          singleTxt: 'Welcome to Your Vue.js App',
+          singleTxt2: 'Welcome to Your Vue.js App',
+          arrayTxt: [{ msg: '<p>aa</p>' }, { msg: '<p>bb</p>' }]
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

@@ -3,7 +3,7 @@ var webpack = require('webpack')
 
 module.exports = {
   entry:
-    process.env.NODE_ENV === 'production' ? './src/index.js' : './src/main.js',
+    process.env.NODE_ENV === 'production' ? './src/index.js' : './example/vue/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',

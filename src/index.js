@@ -1,12 +1,16 @@
-import YimoVueEditor from './components/Editor'
+import YimoVueEditor from './Editor'
+import E from './assets/js/wangEditor.js'
 
-const yimoVueEditor = {
-  install: function(Vue) {
-    Vue.component('YimoVueEditor', YimoVueEditor)
+const instance = YimoVueEditor
+
+const install = (Vue, globalOptions) => {
+  let compName = instance.name
+  if (globalOptions) {
+    compName = globalOptions.name || compName
+    instance.props.globalOptions.default = () => globalOptions
   }
+  Vue.component(compName, instance)
 }
-// 这里的判断很重要
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(yimoVueEditor)
-}
-export default YimoVueEditor
+instance.install = install
+export default instance
+export { E, instance, install }

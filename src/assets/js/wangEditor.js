@@ -3193,7 +3193,10 @@
         undo: '撤销',
         redo: '重复',
         fullscreen: '全屏',
-        openLink: '打开链接'
+        openLink: '打开链接',
+        uploadPlaceTxt:'上传中__',
+        uploadTimeoutPlaceTxt:'上传超时__',
+        uploadErrorPlaceTxt:'上传错误__',
       }
 
       // 英文
@@ -3239,7 +3242,10 @@
         undo: 'Undo',
         redo: 'Redo',
         fullscreen: 'Full screnn',
-        openLink: 'open link'
+        openLink: 'open link',
+        uploadPlaceTxt:'uploading__',
+        uploadTimeoutPlaceTxt:'upload_timeout__',
+        uploadErrorPlaceTxt:'upload_error__',
       }
     })
     // 全局配置
@@ -3450,7 +3456,7 @@
       E.config.customUpload = false
       // 自定义上传的init事件
       // E.config.customUploadInit = function () {....};
-
+      E.config.uploadPlaceholderImg='data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='
       // 自定义上传时传递的参数（如 token）
       E.config.uploadParams = {
         /* token: 'abcdef12345' */
@@ -6702,6 +6708,7 @@
         var filename = file.name || ''
         var fileType = file.type || ''
         var uploadImgFns = editor.config.uploadImgFns
+        var lang = editor.config.lang
         var uploadFileName =
           editor.config.uploadImgFileName || 'wangEditorH5File'
         var onload = uploadImgFns.onload
@@ -6720,7 +6727,7 @@
         function clearInput() {
           self.clear()
         }
-        editor.command(null, 'insertHtml', '<img  alt="uploading_'+filename+'" />')
+        editor.command(null, 'insertHtml', '<img alt="'+lang.uploadPlaceTxt+filename+'" src="'+editor.config.uploadPlaceholderImg+'"/>')
         // onload事件
         reader.onload = function(e) {
           E.log('已读取' + filename + '文件')
@@ -7105,6 +7112,7 @@
         var txt = editor.txt
         var $txt = txt.$txt
         var config = editor.config
+        var lang=editor.config.lang
         var uploadImgUrl = config.uploadImgUrl
         var uploadFileName = config.uploadImgFileName || 'wangEditorDragFile'
 
@@ -7141,7 +7149,7 @@
 
             E.log('得到图片 ' + name)
 
-            editor.command(null, 'insertHtml', '<img  alt="uploading_'+name+'" />')
+            editor.command(null, 'insertHtml', '<img alt="'+lang.uploadPlaceTxt+name+'"  src="'+editor.config.uploadPlaceholderImg+'" />')
             var reader = new FileReader()
             reader.onload = function(e) {
               E.log('读取到图片 ' + name)
