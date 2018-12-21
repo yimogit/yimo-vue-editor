@@ -47,7 +47,7 @@ Vue.use(VEditor, {
 })
 ```
 
-## parameter
+## Parameter
 
 - value
   v-model Binding editor value
@@ -72,7 +72,7 @@ Vue.use(VEditor, {
   }
   ```
 
-## 修改项
+## Modification
 
 - delete Map menu code
 - hide Emoticon menu
