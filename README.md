@@ -1,6 +1,6 @@
 # yimo-vue-editor
 
-Demo address: http://vue-editor.yimo.link/example/html/index.html
+Demo address: https://vue-editor.yimo.link/example/html/index.html
 
 > Vue-editor component based on wangeditor2.5.11 wrapper  
 > wangEditor docs：https://www.kancloud.cn/wangfupeng/wangeditor2/113961
