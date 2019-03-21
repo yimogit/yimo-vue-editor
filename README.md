@@ -7,7 +7,7 @@ Demo address: https://vue-editor.yimo.link/example/html/index.html
 
 ## Used in vue projects
 
-`npm instal yimo-vue-editor --save`
+`npm install yimo-vue-editor --save`
 
 ```
 <template>
