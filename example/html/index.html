@@ -63,8 +63,9 @@
         editorConfig: {
           lang: YimoVueEditor.E.langs.en,
           printLog: false,
+          hideLinkImg:false,
           //ie9不支持跨域
-          uploadImgUrl: 'http://localhost:2233/api/upload?isIe9=' + isIe9,
+          uploadImgUrl:null,//'http://localhost:2233/api/upload?isIe9=' + isIe9,
           menus: [
             'source',
             '|',
