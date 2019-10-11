@@ -135,7 +135,7 @@ export default {
       ]
       editor.config.withCredentials = false
       editor.config.uploadImgFileName = 'file'
-      editor.config.uploadImgUrl = '/mockserver/api/upload'
+      // editor.config.uploadImgUrl = ''
       editor.config.uploadParams = {}
       editor.config.uploadHeaders = {}
       editor.config.zindex = 100

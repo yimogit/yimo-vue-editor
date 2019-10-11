@@ -6403,9 +6403,9 @@
         editor.xhrUploadImg = function(opt) {
           // opt 数据
           var event = opt.event
-          var fileName = opt.filename || ''
           var base64 = opt.base64
           var fileType = opt.fileType || 'image/png' // 无扩展名则默认使用 png
+          var fileName = opt.filename || ('temp_'+parseInt(Math.random()*10000)+'.'+fileType.replace('image/',''))
           var name = opt.name || 'wangEditor_upload_file'
           var loadfn = opt.loadfn || onload
           var errorfn = opt.errorfn || onerror

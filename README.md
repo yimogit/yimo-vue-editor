@@ -2,7 +2,7 @@
 
 Demo address: https://vue-editor.yimo.link/example/html/index.html
 
-> Vue-editor component based on wangeditor2.5.11 wrapper  
+> Vue-editor component based on wangeditor2.5.11 wrapper
 > wangEditor docs：https://www.kancloud.cn/wangfupeng/wangeditor2/113961
 
 ## Used in vue projects
@@ -25,11 +25,15 @@ export default {
 ## Global introduction and configuration
 
 ``` js
-import VEditor from 'yimo-vue-editor'
+import YimoVueEditor from 'yimo-vue-editor'
 
-Vue.use(VEditor, {
+Vue.use(YimoVueEditor, {
   name: 'v-editor-app',//Custom name
-  config: {},//wagnEditor config
+  config: {
+    uploadImgUrl:'/api/upload', // upload api
+    printLog: false, // disabled console.log
+    lang: YimoVueEditor.E.langs.en // lang config
+  },//wagnEditor config
   uploadHandler: (type, resTxt) => {//Upload processing hook
     if (type === 'success') {
       var res = JSON.parse(resTxt)//Do not process the default look at the return value bit image path
@@ -54,7 +58,7 @@ Vue.use(VEditor, {
 - config
   wangEditor2.0  config ，[wangEditor docs](https://www.kancloud.cn/wangfupeng/wangeditor2/113975)
 - uploadHandler
-  The processing of the return value after the image is uploaded, successfully returns the url to be inserted, fails to return an error prompt or prompts in the hook, etc. 
+  The processing of the return value after the image is uploaded, successfully returns the url to be inserted, fails to return an error prompt or prompts in the hook, etc.
   ```js
   var uploadHandler = (type, resTxt) => {
     if (type === 'success') {
@@ -79,7 +83,7 @@ Vue.use(VEditor, {
 - fix Upload multiple image insertion order issues (replace after tag placement)
 - add Link open state setting
 - add Hook after uploading
-
+- add upload append filename no null
 
 
 ## Points to pay attention to
