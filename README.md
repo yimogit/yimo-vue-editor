@@ -9,6 +9,8 @@ Demo address: https://vue-editor.yimo.link/example/html/index.html
 
 `npm install yimo-vue-editor --save`
 
+[![](https://img.shields.io/npm/v/yimo-vue-editor.svg)](https://www.npmjs.com/package/yimo-vue-editor)
+
 ```
 <template>
   <yimo-vue-editor v-model="text></yimo-vue-editor>
