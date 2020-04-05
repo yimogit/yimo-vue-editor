@@ -220,4 +220,6 @@ export default {
   min-height: 300px;
   /* max-height: 500px; */
 }
+.wangEditor-fullscreen { overflow-y:auto;padding-top:32px !important;}
+    .wangEditor-fullscreen .wangEditor-menu-container { position:fixed; top:0;left:0}
 </style>

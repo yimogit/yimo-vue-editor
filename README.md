@@ -86,7 +86,7 @@ Vue.use(YimoVueEditor, {
 - add Link open state setting
 - add Hook after uploading
 - add upload append filename no null
-
+- add fullscreen scroll bar
 
 ## Points to pay attention to
 
