@@ -3176,6 +3176,8 @@
         cancel: '取消',
         unlink: '取消链接',
         table: '表格',
+        rows: '行',
+        columns: '列',
         emotion: '表情',
         img: '图片',
         uploadImg: '上传图片',
@@ -3225,6 +3227,8 @@
         cancel: 'Cancel',
         unlink: 'Unlink',
         table: 'Table',
+        rows: 'rows',
+        columns: 'columns',
         emotion: 'Emotions',
         img: 'Image',
         uploadImg: 'Upload',
@@ -5080,9 +5084,9 @@
           '<table class="choose-table" style="margin-bottom:10px;margin-top:5px;">'
         )
         var $row = $('<span>0</span>')
-        var $rowspan = $('<span> 行 </span>')
+        var $rowspan = $('<span> '+lang.rows+' </span>')
         var $col = $('<span>0</span>')
-        var $colspan = $('<span> 列</span>')
+        var $colspan = $('<span> '+lang.columns+'</span>')
         var $tr
         var i, j
 
