@@ -13,6 +13,7 @@
     <div v-if="caseType === '单个'" key="case1">
       <h3>单个编辑器：v-editor</h3>
       <v-editor
+        ref="myEditor"
         v-model="editorObj.singleTxt"
         :config="{
           useLang: 'en',
@@ -78,6 +79,11 @@ export default {
         arrayTxt: [{ msg: "<p>aa</p>" }, { msg: "<p>bb</p>" }]
       }
     };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.currentE = this.$refs.myEditor;
+    });
   },
   methods: {}
 };

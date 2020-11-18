@@ -51,6 +51,9 @@ export default {
     }
   },
   methods: {
+    getEditor() {
+      return this._currentEditor;
+    },
     setContent(val) {
       var setValueFunc = () => {
         if (val !== this.currentValue) {

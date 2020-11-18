@@ -15,7 +15,7 @@
     </div>
     <div v-if="caseType==='单个'" key="case1">
       <h3>单个编辑器：v-editor</h3>
-      <v-editor v-model="editorObj.singleTxt" :config="editorConfig"></v-editor>
+      <v-editor v-model="editorObj.singleTxt" ref="myEditor":config="editorConfig"></v-editor>
       <h3>全局配置的编辑器：v-editor-app</h3>
       <v-editor-app v-model="editorObj.singleTxt"></v-editor-app>
       <div>预览：</div>
@@ -107,6 +107,11 @@
           singleTxt2: 'Welcome to Your Vue.js App',
           arrayTxt: [{ msg: '<p>aa</p>' }, { msg: '<p>bb</p>' }]
         }
+      },
+      mounted() {
+        this.$nextTick(() => {
+          window.currentE = this.$refs.myEditor;
+        });
       },
     });
   </script>
