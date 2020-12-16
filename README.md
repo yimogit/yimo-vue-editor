@@ -13,7 +13,7 @@ Demo address: https://vue-editor.yimo.link/example/html/index.html
 
 ```
 <template>
-  <yimo-vue-editor v-model="text></yimo-vue-editor>
+  <yimo-vue-editor v-model="text"></yimo-vue-editor>
 </template>
 
 import YimoVueEditor from 'yimo-vue-editor'
