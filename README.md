@@ -34,7 +34,7 @@ Vue.use(YimoVueEditor, {
   config: {
     uploadImgUrl:'/api/upload', // upload api
     printLog: false, // disabled console.log
-    lang: YimoVueEditor.E.langs.en // lang config
+    useLang: 'en' // lang config
   },//wagnEditor config
   uploadHandler: (type, resTxt) => {//Upload processing hook
     if (type === 'success') {
